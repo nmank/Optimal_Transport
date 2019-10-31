@@ -33,33 +33,33 @@ import math
 # b1 = np.ones(5)/5
 
 # #sample 5 points from two probability distributions
-# l0 = np.random.normal(loc = 0, size = (2,20))
-# l1 = np.random.normal(loc = 0, size = (2,10))
-# b0 = np.random.random(20)
-# b0 = b0/sum(b0)
-# b1 = np.random.random(10)
-# b1 = b1/sum(b1)
+l0 = np.random.normal(loc = 0, size = (2,20))
+l1 = np.random.normal(loc = 0, size = (2,10))
+b0 = np.random.random(20)
+b0 = b0/sum(b0)
+b1 = np.random.random(10)
+b1 = b1/sum(b1)
 
 # make a simple unit circle 
-num_samples = 10
-r=5
-s=5
-#r+s+t = num_samples
-radius = 1
-theta = np.linspace(2*np.pi/num_samples, 2*np.pi, num_samples)
+# num_samples = 10
+# r=5
+# s=5
+# #r+s+t = num_samples
+# radius = 1
+# theta = np.linspace(2*np.pi/num_samples, 2*np.pi, num_samples)
 
-l = np.zeros((2,num_samples))
-for i in range(num_samples):
-	l[0,i] = radius*np.cos(theta[i])
-	l[1,i] = radius*np.sin(theta[i])
+# l = np.zeros((2,num_samples))
+# for i in range(num_samples):
+# 	l[0,i] = radius*np.cos(theta[i])
+# 	l[1,i] = radius*np.sin(theta[i])
 
-l0 = l[:,0:r]
-l1 = l[:,r:r+s]
+# l0 = l[:,0:r]
+# l1 = l[:,r:r+s]
 
-#b has all the same probabilities
-b = np.ones(num_samples)
-b0 = b[0:r]/r
-b1 = b[r:r+s]/s
+# #b has all the same probabilities
+# b = np.ones(num_samples)
+# b0 = b[0:r]/r
+# b1 = b[r:r+s]/s
 
 
 #user parameters
@@ -108,7 +108,7 @@ def run_example(l0,l1,b0,b1,vis = True):
 		print(count)
 		plt.scatter(loc[0,:r], loc[1,:r], color='green',s=b0*500, zorder=2)
 		plt.scatter(loc[0,r:],loc[1,r:], color='red',s=b1*500, zorder=2)
-		plt.axis('off')
+		plt.axis('equal')
 		plt.show()
 
 	return t, np.trace(d.T@t)
